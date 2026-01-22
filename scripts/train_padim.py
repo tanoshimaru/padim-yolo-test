@@ -181,11 +181,13 @@ def main():
     # Folderデータモジュールを使用（dataset/good, dataset/defect）
     datamodule = Folder(
         name="padim_train",
-        root=dataset_root,
-        normal_dir="good",
-        abnormal_dir="defect",
+        root=".",
+        normal_dir="dataset/good",
+        abnormal_dir="dataset/defect",
         train_batch_size=batch_size,
         num_workers=num_workers,
+        val_split_mode="from_test",
+        test_split_mode="from_dir",
     )
     logger.info(
         f"Folderデータモジュールを作成しました (batch_size={batch_size}, num_workers={num_workers})"

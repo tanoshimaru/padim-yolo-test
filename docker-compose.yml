@@ -6,9 +6,7 @@ services:
         USERNAME: ${USERNAME:-appuser}
         USER_UID: ${UID:-1000}
         USER_GID: ${GID:-1000}
-    runtime: nvidia
     environment:
-      - NVIDIA_VISIBLE_DEVICES=all
       - TZ=Asia/Tokyo # タイムゾーン設定（cronの時刻を日本時間に）
     tty: true
     stdin_open: true
